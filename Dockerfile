@@ -7,7 +7,7 @@ RUN ant makeself
 
 FROM openjdk:11-jre as install
 RUN apt-get update
-RUN apt-get install -y libglib2.0-bin
+RUN apt-get install -y libglib2.0-bin libnss3-tools
 COPY --from=build /usr/src/tray/out/*.run /tmp
 RUN find /tmp -iname "*.run" -exec {} \;
 WORKDIR /opt/qz-tray
